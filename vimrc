@@ -17,8 +17,7 @@ set foldnestmax=1        "我喜欢这样折叠, 一般只折叠function, 不折
 set splitright
 set shiftround          ">和<时自动round shift indent
 set wrap                "长句折叠
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.tar
-
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.tar,*.bin
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -86,7 +85,7 @@ let g:tagbar_sort = 0
     let f = expand("%:p")
     let cwd = getcwd()
     let tagfilename = cwd . "/tags"
-    let cmd = 'gotags -R -silent=true -f ' . tagfilename . ' ./'
+    let cmd = 'gotags -R=true -silent=true -f ' . tagfilename . ' ./'
     let resp = system(cmd)
   endfunction
 
@@ -103,11 +102,21 @@ let g:ctrlp_by_filename = 1
 " Where to put the new tab page when opening one, `ac` means `after the
 " current tab page
 let g:ctrlp_tabpage_position = 'al'
+" the newly created file is to be opened when in a new tab.
+let g:ctrlp_open_new_file = 't'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                                               "
-"         Bundle Configuration Below                            "
+"         Vimerl                                                "
+"                                                               "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let erlang_folding = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                                               "
+"         Bundle Configuration                                  "
 "                                                               "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible               " be iMproved
@@ -128,6 +137,9 @@ Bundle 'tpope/vim-rails.git'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'kien/ctrlp.vim'
+Bundle 'onlychoice/vimerl'
+Bundle 'scrooloose/nerdtree'
+Bundle 'vim-erlang/vim-erlang-tags'
 
 filetype plugin indent on     " required! 
 
@@ -138,4 +150,3 @@ filetype plugin indent on     " required!
 " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 "
 " NOTE: comments after Bundle command are not allowed..
-
