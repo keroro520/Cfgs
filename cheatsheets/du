@@ -1,0 +1,5 @@
+# 输出该目录以及该目录下的所有文件/目录的大小
+du dir_name
+
+# 仅输出该目录的大小, -h = human, -s = sumerize
+du -sh dir_name

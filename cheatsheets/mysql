@@ -1,0 +1,25 @@
+# To connect to a database
+mysql -h localhost -u root -p
+
+# To backup all databases
+mysqldump --all-databases --all-routines -u root -p > ~/fulldump.sql
+
+# To backup several databases
+mysqldump --databases db1 db2 -u root -p > ~/partiondump.sql
+
+# To restore all databases
+mysql -u root -p  < ~/fulldump.sql
+
+# To create a database in utf8 charset
+CREATE DATABASE owa CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+# To add a user and give rights on the given database
+GRANT ALL PRIVILEGES ON database.* TO 'user'@'localhost'IDENTIFIED BY 'password' WITH GRANT OPTION;
+
+# Count rows
+# COUNT(*) counts the number of rows, so the query to count your animals looks like this:
+select count(*) from pet;
+select owner, count(*) from pet group by owner;
+
+# Connect mysql remotely
+mysql --host=1.1.1.1 --port=1234 -u root -p
